@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-m&)cvsi424b1sa*h)vknbolk^#-dh&7wovsg$wmt%&e+1mdid#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'base.apps.BaseConfig',
+    'userprofiles.apps.UserprofilesConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -54,7 +56,9 @@ ROOT_URLCONF = 'coffeeshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "templates"
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

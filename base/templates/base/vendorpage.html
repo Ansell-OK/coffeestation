@@ -1,10 +1,26 @@
 {% extends "base/base.html" %}
 
 {% block title %}
- Welcome to CoffeeStation
+ {{shop.shop_name}}
 {% endblock title %}
 
 {% block content %}
+
+{% if shop.image %}     
+    <div class="image mb-2">
+        <img src="{{shop.image.url}}" alt="{{shop.shop_name}}">
+    </div>
+{% endif %}
+<h2 class="text-xl">{{shop.shop_name}}</h2>
+
+<p class="text-sm text-gray-600">{{shop.location}}
+</p>
+{% if shop.description %}
+<p class="mt-4">{{shop.description}}</p>
+{% endif %}
+
+<h2 class="text-xl">Products</h2>
+
 <div class="flex flex-wrap ">
     {% for product in products %}
     <div class="product w-1/3 p-2">
@@ -23,7 +39,5 @@
     </div>
      
     {% endfor %}
-</div>
-
 
 {% endblock content %}

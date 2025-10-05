@@ -5,9 +5,16 @@
 {% endblock title %}
 
 {% block content %}
-
+{% if product.image %}     
+    <div class="image mb-2">
+        <img src="{{product.image.url}}" alt="{{product_title}}">
+    </div>
+{% endif %}
 <h2 class="text-xl">{{product.title}}</h2>
-<p class="text-sm text-gray-600">{{product.get_display_price}}</p>
+
+<p class="text-sm text-gray-600">{{product.get_display_price}}
+    <a href="{% url 'shop' slug=product.user.shop.slug %}">{{product.user.shop.shop_name}}</a>
+</p>
 {% if product.description %}
 <p class="mt-4">{{product.description}}</p>
 {% endif %}

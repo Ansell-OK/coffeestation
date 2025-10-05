@@ -18,6 +18,17 @@
             <a href="{% url 'about' %}" class="text-white">About</a>
         </div>
 
+        {% if request.user.is_authenticated %}
+        <div class="menu">
+            <a href="{% url 'profile' %}" class="text-white">My Account</a>
+        </div>
+
+        {% else %}
+        <div class="menu">
+            <a href="{% url 'login' %}" class="text-white">Login</a>
+        </div>
+        {% endif %}
+
 
     </nav>
 
